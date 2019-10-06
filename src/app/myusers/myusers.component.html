@@ -6,12 +6,12 @@
       <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
       placeholder="&#61442;  Start searching" style="width: 50%; margin-left: auto;">
       <br>
-    <table class="table table-hover table-bordered  table-dark text-center ">
+    <table class="table table-hover table-bordered table-dark  text-center ">
       
       <thead >
         <th>User Name</th>
         <th>Details</th>
-        <th>operations</th>
+        <!-- <th>operations</th> -->
         <!-- <th>gravatar_id</th>
         <th>url</th>
         <th>html_url</th>
@@ -25,9 +25,9 @@
         <td>{{ item.html_url }}</td>
         <td>{{ item.followers_url }}</td> -->
         <td>
-          <button class="btn btn-secondary" (click)='getDetails(item.login)'>Details</button>
+          <button class="btn btn-primary" (click)='getDetails(item.login)'>Details</button>
         </td>
-        <td style="display: flex;">
+        <!-- <td style="display: flex;">
           <button class="btn btn-success" >
               <i  class="fa fa-check"></i>
           </button>
@@ -37,10 +37,11 @@
           <button class="btn btn-danger" >
               <i  class="fa fa-trash"></i>
           </button>
-        </td>
+        </td> -->
       </tbody>
     </table>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    
   </div>
   <br>  
   <br>  

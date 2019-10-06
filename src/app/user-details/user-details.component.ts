@@ -9,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class UserDetailsComponent implements OnInit {
   id;
+  searchText;
   userData;
   userRepos;
   favouriteUsers:any=[];
