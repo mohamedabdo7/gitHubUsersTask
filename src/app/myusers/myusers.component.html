@@ -1,0 +1,50 @@
+<html>
+  <body>
+    <div class="container">
+      <br><br><br>
+      <h1 style="text-align: center" class="text-warning"> All Users</h1><br><br>
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+      placeholder="&#61442;  Start searching" style="width: 50%; margin-left: auto;">
+      <br>
+    <table class="table table-hover table-bordered  table-dark text-center ">
+      
+      <thead >
+        <th>User Name</th>
+        <th>Details</th>
+        <th>operations</th>
+        <!-- <th>gravatar_id</th>
+        <th>url</th>
+        <th>html_url</th>
+        <th>followers_url</th>
+        <th>Details</th> -->
+      </thead>
+      <tbody *ngFor="let item of data | paginate: { itemsPerPage: 5, currentPage: p }  | filter:searchText">
+        <td>{{ item.login }}</td>
+        <!-- <td>{{ item.gravatar_id }}</td>
+        <td>{{ item.url }}</td>
+        <td>{{ item.html_url }}</td>
+        <td>{{ item.followers_url }}</td> -->
+        <td>
+          <button class="btn btn-secondary" (click)='getDetails(item.login)'>Details</button>
+        </td>
+        <td style="display: flex;">
+          <button class="btn btn-success" >
+              <i  class="fa fa-check"></i>
+          </button>
+          <button class="btn btn-primary" >
+              <i  class="fa fa-pencil"></i>
+          </button>
+          <button class="btn btn-danger" >
+              <i  class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  <br>  
+  <br>  
+  <br>   
+  </body>
+
+</html>

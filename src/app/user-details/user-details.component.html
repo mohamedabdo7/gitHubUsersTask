@@ -1,0 +1,51 @@
+<br><br><br>
+<div class="container" *ngIf="userData">
+
+      <div class="d-flex flex-column">
+           <span>Fullname: {{userData.login}}</span>
+           <span>ID: {{userData.id}}</span>
+           <span>node_id: {{userData.node_id}}</span>
+           <span>avatar_url: {{userData.avatar_url}}</span>
+           <span>repos_url: {{userData.repos_url}}</span>
+          <!-- <span>{{userData.url}}</span>
+          <span>{{userData.html_url}}</span>
+          <span>{{userData.followers_url}}</span>
+          <span>{{userData.following_url}}</span>
+          <span>{{userData.gists_url}}</span>
+          <span>{{userData.starred_url}}</span>
+          <span>{{userData.subscriptions_url}}</span>
+          <span>{{userData.organizations_url}}</span>
+          <span>{{userData.repos_url}}</span>
+          <span>{{userData.events_url}}</span>
+          <span>{{userData.received_events_url}}</span>
+          <span>{{userData.type}}</span>
+          <span>{{userData.site_admin}}</span> -->
+      </div>
+      <div >
+        <button class='btn btn-success' (click)="addtoFavourite(userData.login)">Add To Favourites</button>
+      </div>
+  <hr>
+
+  <h3>Repos</h3>
+  <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+    placeholder="&#61442;  Start searching" style="width: 50%; margin-left: auto; margin-bottom: 5px;">
+  <table class="table table-hover table-bordered   text-center">
+    <thead class="table-dark">
+      <th>full_name</th>
+      <th>git_url</th>
+      <th>downloads_url</th>
+      <th>Creadte At</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of userRepos | paginate: { itemsPerPage: 2, currentPage: p | filter:searchText}">
+        <td>{{ item.full_name }}</td>
+        <td>{{ item.git_url }}</td>
+        <td>{{ item.downloads_url }}</td>
+        <td>{{ item.created_at }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+
+</div>

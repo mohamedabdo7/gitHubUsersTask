@@ -1,0 +1,81 @@
+<html>
+  <body>
+    
+    <div class="container">
+      <div class="signup-content">
+    
+        <div class="inner-bg">
+          <div class="container">
+            
+            <div class="row">
+              <div class="col-sm-6 col-sm-offset-3 form-box">
+                <div class="form-top">
+                  <div class="form-top-left">
+                    <h3>register to our site</h3>
+                  </div>
+                  
+                </div>
+                <div class="form-bottom">
+    
+                  <form role="form" [formGroup]="formReg" >
+                    <div class="form-group">
+                      <label class="sr-only" for="userName">User Name</label>
+                      <input type="text" name="userName" required placeholder="User Name" class="form-input form-control"
+                        id="userName" formControlName="userName">
+                      <span class="text-danger"
+                        *ngIf="!formReg.controls['userName'].valid && formReg.controls['userName'].touched">
+                        username is required
+                      </span>
+                    </div>
+    
+                    <div class="form-group">
+                      <label class="sr-only" for="form-username">Email</label>
+                      <input type="text" name="email" required placeholder="Email..." class="form-input form-control"
+                        id="email" formControlName="email">
+                      <span class="text-danger"
+                        *ngIf="!formReg.controls['email'].valid && formReg.controls['email'].touched">
+                        email is required
+                      </span>
+                    </div>
+    
+                    <div class="form-group">
+                      <label class="sr-only" for="form-password">Password</label>
+                      <input type="password" required name="password" placeholder="Password..."
+                        class="form-password form-input" id="password" formControlName="password">
+                      <span class="text-danger"
+                        *ngIf="!formReg.controls['password'].valid && formReg.controls['password'].touched">
+                        password is required
+                      </span>
+                    </div>
+    
+                    <div class="form-group">
+                      <label class="sr-only" for="form-password">Date of Birth</label>
+                      <input type="date" required name="bDate" placeholder="DOB...." class="form-password form-input"
+                        id="bDate" formControlName="bDate">
+                    </div>
+    
+                    <div class="form-group">
+                      <label class="sr-only" for="form-image">choose your pic</label>
+                      <input type="file" required name="image" placeholder="DOB...." class="form-image form-input"
+                        id="image" formControlName="image">
+                    </div>
+    
+                    <div class="form-group">
+                      <input type="radio" name="gender" value="male" required>Male
+                      <input type="radio" name="gender" value="female" required>Female
+                    </div>
+    
+                    <button type="submit" class="btn btn-success form-submit" (click)='register()'>register</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+    
+          </div>
+        </div>
+    
+      </div>
+    </div>
+
+  </body>
+</html>
